@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd client && npm run build",
+    "install-ui": "cd client && npm install",
+    "heroku-postbuild": "npm run install-ui && npm run build",
     "start": "node mealPlanner_controller.mjs"
   },
   "author": "",
