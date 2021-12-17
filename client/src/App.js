@@ -23,7 +23,7 @@ function App() {
   const [planIDToEdit, setPlanIDToEdit] = useState()
 
   const deletePlan = async planID => {
-    const response = await fetch(`http://flip1.engr.oregonstate.edu:9604/mealPlans/${planID}`, {method: 'DELETE'});
+    const response = await fetch(`/mealPlans/${planID}`, {method: 'DELETE'});
     if (response.status === 204) {
         window.location.reload(false);
     }

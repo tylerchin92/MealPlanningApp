@@ -54,7 +54,7 @@ function EditMealPlan({ mealPlanToEdit, setPlanNameToEdit, setPlanIDToEdit }) {
     const filter = recipesMealPlans.filter(e => e.planID === planID && e.day === day && e.assignedMeal === assignedMeal)
 
     if (filter.length > 0) {
-      const response = await fetch(`http://flip1.engr.oregonstate.edu:9604/recipesmealplans/${planID}/${assignedMeal}/${day}`, {
+      const response = await fetch(`/recipesmealplans/${planID}/${assignedMeal}/${day}`, {
         method: 'PUT',
         body: JSON.stringify(newAssignment),
         headers: {
@@ -69,7 +69,7 @@ function EditMealPlan({ mealPlanToEdit, setPlanNameToEdit, setPlanIDToEdit }) {
       window.location.reload(false);
     }
     else if (recipeID !== null && day !== null && assignedMeal !== null) {
-      const response = await fetch('http://flip1.engr.oregonstate.edu:9604/recipesmealplans', {
+      const response = await fetch('/recipesmealplans', {
         method: 'POST',
         body: JSON.stringify(newAssignment),
         headers: {
@@ -89,7 +89,7 @@ function EditMealPlan({ mealPlanToEdit, setPlanNameToEdit, setPlanIDToEdit }) {
   };
 
   const deleteRecipeFromMealPlan = async (planID, recipeID, day) => {
-    const response = await fetch(`http://flip1.engr.oregonstate.edu:9604/recipesmealplans/${planID}/${recipeID}/${day}`, { method: 'DELETE' });
+    const response = await fetch(`/recipesmealplans/${planID}/${recipeID}/${day}`, { method: 'DELETE' });
     if (response.status === 204) {
       window.location.reload(false);
     }

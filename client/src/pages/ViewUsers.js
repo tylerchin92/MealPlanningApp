@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import UsersTable from "../components/UsersTable";
 import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
@@ -15,7 +14,7 @@ function ViewUsers({ setUserToEdit }) {
 
     const addUser = async () => {
         const newUser = { userName }
-        const response = await fetch('http://localhost:9604/users', {
+        const response = await fetch('/users', {
             method: 'POST',
             body: JSON.stringify(newUser),
             headers: {
@@ -32,14 +31,20 @@ function ViewUsers({ setUserToEdit }) {
 
 
     const getUsers = async () => {
-        await fetch('http://localhost:9604/users')
-            .then((response) => response.json())
-            .then((data) => setUsers(data));
+        const response = await fetch('/users');
+        
+        const data = await response.json();
 
+        if (response.ok) {
+            setUsers(data);
+        }
+        else {
+            console.error(`Could not fetch, status code = ${response.status}`)
+        }
     };
 
     const deleteUser = async userID => {
-        const response = await fetch(`http://flip1.engr.oregonstate.edu:9604/users/${userID}`, { method: 'DELETE' });
+        const response = await fetch(`/users/${userID}`, { method: 'DELETE' });
         if (response.status === 204) {
             window.location.reload(false);
         }

@@ -20,7 +20,6 @@ function UserDropdown({userID, onUserChange}) {
     }, []);
 
     const changeUser = useCallback(
-
         e => {
             onUserChange(e.target.value)
         },
