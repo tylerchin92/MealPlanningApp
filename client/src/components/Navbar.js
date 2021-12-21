@@ -1,5 +1,5 @@
 import Navbar from 'react-bootstrap/Navbar';
-import {Container, Nav, NavDropdown} from 'react-bootstrap';
+import {Container, Nav} from 'react-bootstrap';
 
 function MealPlannerNavbar() {
 
@@ -13,8 +13,6 @@ function MealPlannerNavbar() {
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/ViewUsers">Users</Nav.Link>
                         <Nav.Link href="/ViewRecipes">Recipes</Nav.Link>
-                        <Nav.Link href="/ViewMealPlans">Meal Plans</Nav.Link>
-                        <Nav.Link href="/ViewMealTypes">Meal Types</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

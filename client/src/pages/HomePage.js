@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import UserDropdownForHomePage from "../components/UserDropdownForHomePage";
@@ -18,13 +17,13 @@ function HomePage({ setMealPlanToEdit, deletePlan }) {
 
     const data = await response.json();
 
-        if (response.ok) {
-            setMealPlans(data);
-            setFilteredMealPlans(data);
-        }
-        else {
-            console.error(`Could not fetch, status code = ${response.status}`)
-        }
+    if (response.ok) {
+      setMealPlans(data);
+      setFilteredMealPlans(data);
+    }
+    else {
+      console.error(`Could not fetch, status code = ${response.status}`)
+    }
   }
 
   const filterMealPlans = userID => {
@@ -32,8 +31,8 @@ function HomePage({ setMealPlanToEdit, deletePlan }) {
       setFilteredMealPlans(mealPlans);
     }
     else {
-    const filter = mealPlans.filter(mealPlan => mealPlan.userID === Number(userID));
-    setFilteredMealPlans(filter);
+      const filter = mealPlans.filter(mealPlan => mealPlan.userID === Number(userID));
+      setFilteredMealPlans(filter);
     };
   };
 
@@ -44,20 +43,16 @@ function HomePage({ setMealPlanToEdit, deletePlan }) {
 
   useEffect(() => {
     getMealPlans();
-}, []);
+  }, []);
 
   return (
     <div>
       <div>
-      <MealPlannerNavbar />
+        <MealPlannerNavbar />
       </div>
-
-        <UserDropdownForHomePage onUserChange={filterMealPlans} />
-        <br />
-        <MealPlansTable mealPlans={filteredMealPlans} editPlan={editPlan} deletePlan={deletePlan}/>
-      
-
+      <UserDropdownForHomePage onUserChange={filterMealPlans} />
       <br />
+      <MealPlansTable mealPlans={filteredMealPlans} editPlan={editPlan} deletePlan={deletePlan} />
       <button class='btn btn-outline-dark' onClick={() => history.push('/CreateMealPlan')}>Create New Meal Plan</button>
       <br />
     </div>)

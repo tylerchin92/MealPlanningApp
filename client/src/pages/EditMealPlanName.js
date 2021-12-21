@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import UserDropdownForHomePage from "../components/UserDropdownForHomePage";
 import MealPlannerNavbar from "../components/Navbar";
 
 function EditMealPlanName({ planNameToEdit, planIDToEdit }) {

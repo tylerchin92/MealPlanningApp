@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import UserDropdownForHomePage from '../components/UserDropdownForHomePage';
 import MealTypesRadio from "../components/MealTypesRadio";
 import MealPlannerNavbar from "../components/Navbar";
 
@@ -20,9 +18,9 @@ function EditRecipe({ recipeToEdit }) {
     const [ingredients, setIngredients] = useState(recipeToEdit ? recipeToEdit.ingredients : savedIngredients);
     const [instruction, setInstruction] = useState(recipeToEdit ? recipeToEdit.instruction : savedInstruction);
     const [calorieCount, setCalorieCount] = useState(recipeToEdit ? recipeToEdit.calorieCount : savedCalorieCount);
-    const [userID, setUserID] = useState(recipeToEdit ? recipeToEdit.userID : savedUserID);
+    const [userID] = useState(recipeToEdit ? recipeToEdit.userID : savedUserID);
     const [typeID, setTypeID] = useState(recipeToEdit ? recipeToEdit.typeID : savedTypeID);
-    const [recipeID, setRecipeID] = useState(recipeToEdit ? recipeToEdit.recipeID : savedRecipeID)
+    const [recipeID] = useState(recipeToEdit ? recipeToEdit.recipeID : savedRecipeID)
 
     useEffect(() => {
         if (recipeToEdit !== undefined) {

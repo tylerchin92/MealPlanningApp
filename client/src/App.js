@@ -5,9 +5,7 @@ import HomePage from "./pages/HomePage";
 import CreateRecipe from "./pages/CreateRecipe";
 import EditMealPlan from "./pages/EditMealPlan";
 import CreateMealPlan from "./pages/CreateMealPlan";
-import ViewMealPlans from "./pages/ViewMealPlans";
 import ViewRecipes from "./pages/ViewRecipes";
-import ViewMealTypes from "./pages/ViewMealTypes"
 import ViewUsers from "./pages/ViewUsers"
 import "./App.css";
 import EditUser from "./pages/EditUser";
@@ -50,17 +48,11 @@ function App() {
               <Route path="/CreateMealPlan">
                 <CreateMealPlan />
               </Route>
-              <Route path="/ViewMealPlans">
-                <ViewMealPlans setMealPlanToEdit={setMealPlanToEdit} deletePlan={deletePlan} />
-              </Route>
               <Route path="/ViewRecipes">
                 <ViewRecipes setRecipeToEdit={setRecipeToEdit}/>
               </Route>
               <Route path="/ViewUsers">
                 <ViewUsers setUserToEdit={setUserToEdit}/>
-              </Route>
-              <Route path="/ViewMealTypes">
-                <ViewMealTypes />
               </Route>
               <Route path="/EditUser">
                 <EditUser userToEdit={userToEdit} />

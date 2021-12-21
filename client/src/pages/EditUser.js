@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import MealPlannerNavbar from '../components/Navbar';
@@ -11,7 +10,7 @@ function EditUser({ userToEdit }) {
     const storedName = localStorage.getItem('savedName');
     const storedID = Number(localStorage.getItem('savedID'));
     const [userName, setUserName] = useState(userToEdit ? userToEdit.userName : storedName);
-    const [userID, setUserID] = useState(userToEdit ? userToEdit.userID : storedID);
+    const [userID] = useState(userToEdit ? userToEdit.userID : storedID);
 
     useEffect(() => {
         if (userToEdit !== undefined) {

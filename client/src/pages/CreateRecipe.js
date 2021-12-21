@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import UserDropdown from '../components/UserDropdown';
 import MealTypesRadio from "../components/MealTypesRadio";
 import MealPlannerNavbar from "../components/Navbar";
